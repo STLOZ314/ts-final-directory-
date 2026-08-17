@@ -1,7 +1,7 @@
 {
   "name": "ts-final-directory",
   "version": "1.0.0",
-  "description": "A responsive student directory built with semantic HTML, Tailwind CSS, custom CSS, and vanilla TypeScript.",
+  "description": "A responsive student directory built with semantic HTML, Tailwind CSS, custom CSS, and vanilla TypeScript. The app supports creating, reading, deleting, searching, and filtering students.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

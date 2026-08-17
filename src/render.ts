@@ -26,7 +26,7 @@ function renderDirectory(students: Student[]): void {
     emptyState.className =
       "rounded-2xl border border-slate-300 bg-white/70 p-6 text-center shadow-sm";
     emptyState.innerHTML =
-      "<p class=\"text-lg font-semibold text-slate-800\">No students match your current filters.</p><p class=\"mt-2 text-slate-600\">Try a different search term, clear the filter, or add a new student.</p>";
+      "<p class=\"text-lg font-semibold text-slate-800\">No students match your current filters.</p><p class=\"mt-2 text-slate-600\">Try a different search term, clear the filter, or add a new student.";
     directory.append(emptyState);
     return;
   }
