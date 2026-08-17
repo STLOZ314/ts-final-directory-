@@ -1,0 +1,16 @@
+{
+  "name": "ts-final-directory",
+  "version": "1.0.0",
+  "description": "A responsive student directory built with semantic HTML, Tailwind CSS, custom CSS, and vanilla TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

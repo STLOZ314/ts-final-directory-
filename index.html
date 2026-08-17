@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory | Web Technologies Final</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="dist/types.js" defer></script>
+    <script src="dist/data.js" defer></script>
+    <script src="dist/render.js" defer></script>
+    <script src="dist/app.js" defer></script>
+  </head>
+  <body class="min-h-screen bg-slate-100 text-slate-900">
+    <header class="relative overflow-hidden border-b border-slate-300 bg-slate-900 text-white">
+      <div class="hero-glow"></div>
+      <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <p class="tracking-[0.2em] text-sky-300">WEB TECHNOLOGIES FINAL</p>
+        <h1 class="mt-2 text-4xl font-extrabold leading-tight sm:text-5xl">
+          Student Directory Studio
+        </h1>
+        <p class="mt-4 max-w-2xl text-slate-200">
+          Browse, search, filter, and manage students using vanilla TypeScript and semantic HTML.
+        </p>
+      </div>
+    </header>
+
+    <main class="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[360px_1fr] lg:px-8">
+      <section aria-labelledby="add-student-heading" class="space-y-4">
+        <h2 id="add-student-heading" class="text-2xl font-bold text-slate-900">Add Student</h2>
+
+        <form id="student-form" class="space-y-5 rounded-2xl border border-slate-300 bg-white p-5 shadow-sm" novalidate>
+          <fieldset class="space-y-4 rounded-xl border border-slate-300 p-4">
+            <legend class="px-2 text-sm font-semibold uppercase tracking-wide text-slate-700">
+              Personal Info
+            </legend>
+
+            <div class="space-y-2">
+              <label for="first-name" class="block text-sm font-semibold text-slate-800">First Name</label>
+              <input
+                id="first-name"
+                name="firstName"
+                type="text"
+                autocomplete="given-name"
+                required
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+              <output id="first-name-error" class="field-error" aria-live="polite" hidden></output>
+            </div>
+
+            <div class="space-y-2">
+              <label for="last-name" class="block text-sm font-semibold text-slate-800">Last Name</label>
+              <input
+                id="last-name"
+                name="lastName"
+                type="text"
+                autocomplete="family-name"
+                required
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+              <output id="last-name-error" class="field-error" aria-live="polite" hidden></output>
+            </div>
+
+            <div class="space-y-2">
+              <label for="email" class="block text-sm font-semibold text-slate-800">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+            </div>
+
+            <div class="space-y-2">
+              <label for="photo-url" class="block text-sm font-semibold text-slate-800">Photo URL</label>
+              <input
+                id="photo-url"
+                name="photoUrl"
+                type="text"
+                placeholder="assets/photos/student-11.jpg"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+            </div>
+          </fieldset>
+
+          <fieldset class="space-y-4 rounded-xl border border-slate-300 p-4">
+            <legend class="px-2 text-sm font-semibold uppercase tracking-wide text-slate-700">
+              Academic Info
+            </legend>
+
+            <div class="space-y-2">
+              <label for="program" class="block text-sm font-semibold text-slate-800">Program</label>
+              <select
+                id="program"
+                name="program"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+                <option>Web Development</option>
+                <option>Cybersecurity</option>
+                <option>Networking</option>
+                <option>Robotics</option>
+                <option>Business</option>
+                <option>Data Analytics</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label for="class-year" class="block text-sm font-semibold text-slate-800">Class Year</label>
+              <select
+                id="class-year"
+                name="classYear"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+                <option>Freshman</option>
+                <option>Sophomore</option>
+                <option>Junior</option>
+                <option>Senior</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label for="gpa" class="block text-sm font-semibold text-slate-800">GPA (Optional)</label>
+              <input
+                id="gpa"
+                name="gpa"
+                type="number"
+                step="0.01"
+                min="0"
+                max="4"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+            </div>
+
+            <div class="space-y-2">
+              <label for="skills" class="block text-sm font-semibold text-slate-800">Skills (comma-separated)</label>
+              <input
+                id="skills"
+                name="skills"
+                type="text"
+                list="skill-options"
+                placeholder="HTML, CSS, TypeScript"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+              <datalist id="skill-options"></datalist>
+            </div>
+
+            <div class="space-y-2">
+              <label for="bio" class="block text-sm font-semibold text-slate-800">Bio</label>
+              <textarea
+                id="bio"
+                name="bio"
+                rows="4"
+                maxlength="240"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              ></textarea>
+              <output id="bio-count" class="text-sm text-slate-600">0 / 240 characters</output>
+            </div>
+          </fieldset>
+
+          <div class="flex flex-wrap gap-3">
+            <button
+              type="submit"
+              class="rounded-lg bg-sky-700 px-4 py-2 font-semibold text-white transition hover:bg-sky-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+            >
+              Save Student
+            </button>
+            <button
+              type="reset"
+              class="rounded-lg border border-slate-400 px-4 py-2 font-semibold text-slate-800 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2"
+            >
+              Reset Form
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section aria-labelledby="directory-heading" class="space-y-4">
+        <div class="flex flex-col gap-4 rounded-2xl border border-slate-300 bg-white p-5 shadow-sm sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 id="directory-heading" class="text-2xl font-bold text-slate-900">Directory</h2>
+            <output id="results-count" class="mt-1 block text-sm text-slate-600">
+              Showing 0 of 0 students
+            </output>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div>
+              <label for="search" class="mb-1 block text-sm font-semibold text-slate-800">Search</label>
+              <input
+                id="search"
+                type="search"
+                placeholder="Search by name or skill"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+            </div>
+
+            <div>
+              <label for="program-filter" class="mb-1 block text-sm font-semibold text-slate-800">Program Filter</label>
+              <select
+                id="program-filter"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+              >
+                <option value="">All Programs</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Networking">Networking</option>
+                <option value="Robotics">Robotics</option>
+                <option value="Business">Business</option>
+                <option value="Data Analytics">Data Analytics</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <section
+          id="directory"
+          aria-live="polite"
+          class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3"
+        >
+          <article class="rounded-2xl border border-slate-300 bg-white/80 p-5 shadow-sm">
+            <p class="text-lg font-semibold text-slate-800">Loading students...</p>
+            <p class="mt-1 text-slate-600">Your directory cards will appear here when scripts finish loading.</p>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-300 bg-white py-6">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 text-sm text-slate-600 sm:px-6 lg:px-8">
+        <p>Student Directory Final Project</p>
+        <p>Built with semantic HTML, Tailwind, CSS, and TypeScript</p>
+      </div>
+    </footer>
+  </body>
+</html>
