@@ -26,7 +26,7 @@ function renderDirectory(students: Student[]): void {
     emptyState.className =
       "rounded-2xl border border-slate-300 bg-white/70 p-6 text-center shadow-sm";
     emptyState.innerHTML =
-      "<p class=\"text-lg font-semibold text-slate-800\">No students match your current filters.</p><p class=\"mt-2 text-slate-600\">Try a different search term, clear the filter, or add a new student.";
+      "<p class=\"text-lg font-semibold text-slate-800\">No students match your current filters.</p><p class=\"mt-2 text-slate-600\">Try a different search term, clear the filter, or add a new student.</p>";
     directory.append(emptyState);
     return;
   }
@@ -34,7 +34,7 @@ function renderDirectory(students: Student[]): void {
   for (const student of students) {
     const card = document.createElement("article");
     card.className =
-      "group relative overflow-hidden rounded-2xl border border-slate-300 bg-white/80 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus-within:ring-2 focus-within:ring-sky-600";
+      "group relative overflow-hidden rounded-2xl border border-slate-300 bg-white/80 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-sky-600";
 
     const media = document.createElement("div");
     media.className =
